@@ -1,0 +1,8 @@
+my:
+  name: kevin
+  age: 17
+  number: ${random.int}
+  uuid: ${random.uuid}
+  max: ${random.int(10)}
+  value: ${random.value}
+  descrption: I AM ${my.age} YEARS OLD FOREVER
