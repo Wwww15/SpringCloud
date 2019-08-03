@@ -1,3 +1,8 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: SpringCloudDemo
 my:
   name: kevin
   age: 17
@@ -6,3 +11,16 @@ my:
   max: ${random.int(10)}
   value: ${random.value}
   descrption: I AM ${my.age} YEARS OLD FOREVER
+management:
+  server:
+    port: 9001
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /
+  endpoint:
+    shutdown:
+      enabled: true
+
+
