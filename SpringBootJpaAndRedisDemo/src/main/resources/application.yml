@@ -13,4 +13,16 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        min-idle: 4
+        max-idle: 20
+        max-wait: -1
+
 
