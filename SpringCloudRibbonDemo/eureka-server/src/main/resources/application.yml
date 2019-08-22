@@ -2,8 +2,8 @@ server:
   port: 9000
 spring:
   application:
-    name: eureka-server-one
-  profiles: eureka-one
+    name: eureka-server
+  profiles: eureka-server-one
 eureka:
   instance:
     hostname: eureka-one
@@ -15,13 +15,13 @@ eureka:
 
 server:
   port: 9001
-Spring:
+spring:
   application:
-    name: eureka-server-two
-  profiles: eureka-two
+    name: eureka-server
+  profiles: eureka-server-two
 eureka:
+  instance:
+    hostname: eureka-two
   client:
     service-url:
       defaultZone: http://eureka-one:9000/eureka/
-  instance:
-    hostname: eureka-two
