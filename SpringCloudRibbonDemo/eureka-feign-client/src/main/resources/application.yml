@@ -1,0 +1,9 @@
+server:
+  port: 9005
+spring:
+  application:
+    name: eureka-feign-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-two:9001/eureka/
