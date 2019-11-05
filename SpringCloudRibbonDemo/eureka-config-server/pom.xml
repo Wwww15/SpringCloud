@@ -3,34 +3,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.7.RELEASE</version>
+        <groupId>com.springcloud</groupId>
+        <artifactId>ribbon</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.springcloud</groupId>
-    <artifactId>ribbon</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>eureka-config-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ribbon</name>
-    <packaging>pom</packaging>
+    <name>eureka-config-server</name>
     <description>Demo project for Spring Boot</description>
-
-    <modules>
-        <module>eureka-server</module>
-        <module>eureka-client-one</module>
-        <module>eureka-ribbon-client</module>
-        <module>eureka-feign-client</module>
-        <module>eureka-turbine</module>
-        <module>eureka-config-server</module>
-        <module>eureka-config-client</module>
-    </modules>
 
     <properties>
         <java.version>1.8</java.version>
-        <spring.cloud.version>Greenwich.SR2</spring.cloud.version>
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -41,18 +30,20 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+            <version>2.1.2.RELEASE</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>2.1.2.RELEASE</version>
+        </dependency>
 
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <plugins>

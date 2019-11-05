@@ -1,0 +1,41 @@
+server:
+  port: 9007
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-one:9000/eureka/
+spring:
+  application:
+    name:  eureka-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Wenzx1993/SpringCloudConfigCenter
+          search-paths: /
+          username: 1006380802@qq.com
+          password: wenzhixun8
+          default-label: master
+  profiles: eureka-config-server-one
+
+---
+
+server:
+  port: 9008
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-two:9000/eureka/
+spring:
+  application:
+    name:  eureka-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Wenzx1993/SpringCloudConfigCenter
+          search-paths: /
+          username: 1006380802@qq.com
+          password: wenzhixun8
+          default-label: master
+  profiles: eureka-config-server-two

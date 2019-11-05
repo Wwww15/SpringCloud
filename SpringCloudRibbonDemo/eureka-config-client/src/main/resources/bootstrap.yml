@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: eureka-config-server
+  profiles:
+    active: dev
+  rabbitmq:
+    host: 47.98.148.0
+    port: 5672
+    username: kevin
+    password: 12345
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-two:9001/eureka/

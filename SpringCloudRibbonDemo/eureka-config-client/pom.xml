@@ -6,11 +6,12 @@
         <groupId>com.springcloud</groupId>
         <artifactId>ribbon</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.springcloud</groupId>
-    <artifactId>eureka-feign-client</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>eureka-config-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eureka-feign-client</name>
+    <name>eureka-config-client</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -18,20 +19,15 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <artifactId>spring-cloud-starter-config</artifactId>
             <version>2.1.2.RELEASE</version>
         </dependency>
 
@@ -42,26 +38,11 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
             <version>2.1.2.RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-            <version>2.1.2.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
