@@ -1,0 +1,15 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: user-client
+  zipkin:
+    base-url: http://localhost:9002
+  sleuth:
+    sampler:
+      probability: 1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-one:9000/eureka/
+

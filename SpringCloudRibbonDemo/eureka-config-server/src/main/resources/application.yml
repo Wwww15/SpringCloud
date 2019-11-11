@@ -17,6 +17,17 @@ spring:
           password: wenzhixun8
           default-label: master
   profiles: eureka-config-server-one
+  rabbitmq:
+    host: 47.98.148.0
+    port: 5672
+    username: kevin
+    password: 12345
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
 
 ---
 
@@ -39,3 +50,14 @@ spring:
           password: wenzhixun8
           default-label: master
   profiles: eureka-config-server-two
+  rabbitmq:
+    host: 47.98.148.0
+    port: 5672
+    username: kevin
+    password: 12345
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
