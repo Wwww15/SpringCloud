@@ -19,6 +19,8 @@
     <modules>
         <module>eureka-server</module>
         <module>zikpin-server</module>
+        <module>user-client</module>
+        <module>gateway-server</module>
     </modules>
 
     <properties>

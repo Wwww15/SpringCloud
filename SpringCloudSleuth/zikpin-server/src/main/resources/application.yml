@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: zipkin-server
+  rabbitmq:
+    host: 47.98.148.0
+    port: 5672
+    username: kevin
+    password: 12345
 eureka:
   client:
     service-url:
