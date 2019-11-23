@@ -1,0 +1,9 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: spring security
+  thymeleaf:
+    mode: HMTL5
+    encoding: UTF-8
+    cache: false
