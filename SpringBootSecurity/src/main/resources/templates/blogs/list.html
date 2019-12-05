@@ -12,7 +12,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="blog: ${blogModel.blogsList}">
+        <tr th:each="blog: ${blogList}">
             <td th:text="${blog.id}"></td>
             <td th:text="${blog.name}"></td>
             <td th:text="${blog.content}"></td>

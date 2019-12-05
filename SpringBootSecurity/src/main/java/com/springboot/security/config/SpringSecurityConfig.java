@@ -7,6 +7,10 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @EnableWebSecurity
 @Configuration
@@ -15,8 +19,16 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-            authenticationManagerBuilder.inMemoryAuthentication()
-                .withUser("kevin").password("12345").roles("admin");
+            authenticationManagerBuilder.userDetailsService(userDetailsService()).passwordEncoder(new BCryptPasswordEncoder());
+    }
+
+
+    public UserDetailsService userDetailsService()
+    {
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+        manager.createUser(User.withUsername("kevin").password(new BCryptPasswordEncoder().encode("12345")).roles("admin").build());
+        manager.createUser(User.withUsername("smith").password(new BCryptPasswordEncoder().encode("12345")).roles("user","admin").build());
+        return  manager;
     }
 
     @Override

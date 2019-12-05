@@ -52,6 +52,15 @@
 		</dependency>
 
 
+		<!--热部署插件-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<version>2.1.9.RELEASE</version>
+			<optional>true</optional>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -59,6 +68,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

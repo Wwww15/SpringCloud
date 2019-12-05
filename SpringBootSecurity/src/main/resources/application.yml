@@ -6,4 +6,5 @@ spring:
   thymeleaf:
     mode: HMTL5
     encoding: UTF-8
+    #热部署
     cache: false

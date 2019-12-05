@@ -1,26 +1,25 @@
 package com.springboot.security.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class SpringSecurityController {
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public String root()
     {
         return "redirect:/index";
     }
 
-    @GetMapping("/index")
+    @RequestMapping("/index")
     public String index()
     {
         return "index";
     }
 
-    @GetMapping("/login")
+    @RequestMapping("/login")
     public String login()
     {
         return "login";
@@ -33,7 +32,7 @@ public class SpringSecurityController {
         return "login";
     }
 
-    @GetMapping("/401")
+    @RequestMapping("/401")
     public String notFound()
     {
         return  "401";
