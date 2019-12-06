@@ -24,7 +24,7 @@ public class BlogController {
         return "blogs/list";
     }
 
-    @PreAuthorize("hasRole('admin')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/{id}/delete")
     public String deleteById(@PathVariable Long id, Model model)
     {

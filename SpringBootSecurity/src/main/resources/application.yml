@@ -8,3 +8,12 @@ spring:
     encoding: UTF-8
     #热部署
     cache: false
+  datasource:
+    url: jdbc:mysql://49.235.81.235:3306/springcloud?useUnicoe=true&characterEncoding=gbk&useSSL=true&serverTimezone=Hongkong
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: kevin
+    password: Kevin@12345
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

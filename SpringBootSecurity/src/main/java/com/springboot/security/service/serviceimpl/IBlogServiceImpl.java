@@ -33,7 +33,8 @@ public class IBlogServiceImpl implements IBlogService {
             Blog blog = iterator.next();
             if(blog.getId()==id)
             {
-                blogs.remove(blog);
+                iterator.remove();
+                return;
             }
         }
     }
