@@ -20,10 +20,10 @@ public class User implements UserDetails, Serializable {
     @Column(nullable = false,unique = true)
     private String username;
 
-    private Long password;
+    private String password;
 
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(
             //指定中间表名
              name = "user_role",
@@ -58,4 +58,6 @@ public class User implements UserDetails, Serializable {
     public boolean isEnabled() {
         return true;
     }
+
+
 }

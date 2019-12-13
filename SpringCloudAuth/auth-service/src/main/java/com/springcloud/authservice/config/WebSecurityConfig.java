@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 @Configuration
@@ -20,19 +21,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailService userDetailService;
 
+    //配置哪些需要验证
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //1.配置所有请求都需要经过验证
-        http.authorizeRequests().anyRequest().authenticated().and().csrf().disable();
+        http.authorizeRequests().anyRequest().authenticated().and().csrf().disable().formLogin().permitAll();
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder()
+    {
+        return  new BCryptPasswordEncoder();
+    }
+
+
+    //配置验证的方式和加密方式
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailService).passwordEncoder(new BCryptPasswordEncoder());
+        auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
     }
 
-
-
+    //配置验证管理器
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
