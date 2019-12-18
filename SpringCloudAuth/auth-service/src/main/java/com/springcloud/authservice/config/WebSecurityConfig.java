@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //1.配置所有请求都需要经过验证
-        http.authorizeRequests().anyRequest().authenticated().and().csrf().disable().formLogin().permitAll();
+        http.csrf().disable().formLogin().permitAll().and().authorizeRequests().anyRequest().authenticated();
     }
 
     @Bean

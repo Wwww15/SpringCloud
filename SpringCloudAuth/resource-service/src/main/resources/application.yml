@@ -1,0 +1,29 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: resource-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://49.235.81.235:3306/springcloud?useSSL=true&useUnicode=true&characterEncoding=gbk&serverTimezone=Hongkong
+    username: kevin
+    password: Kevin@12345
+  jpa:
+    hibernate:
+      ddl-auto: none
+      show-sql: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-one:9000/eureka/
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:9002/auth/user/current
+    client:
+      client-id: kevin
+      client-secret: kevin12345
+      access-token-uri: http://localhost:9002/auth/oauth/token
+      grant-type: password,refresh_token
+      scope: all

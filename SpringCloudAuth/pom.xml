@@ -17,6 +17,7 @@
     <modules>
         <module>eureka-server</module>
         <module>auth-service</module>
+        <module>resource-service</module>
     </modules>
 
     <properties>

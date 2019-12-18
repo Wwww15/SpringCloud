@@ -49,15 +49,11 @@ public class AutherizationServerConfig extends AuthorizationServerConfigurerAdap
         clients
                 .inMemory()
                 .withClient("kevin")
-                .secret(passwordEncoder.encode("secret_1"))
-                .authorizedGrantTypes("authorization_code", "refresh_token")
-                .redirectUris("http://baidu.com")
-                .scopes("all")
-                .and()
-                .withClient("service-hi")
-                .secret(passwordEncoder.encode("123456"))
-                .authorizedGrantTypes("client_credentials","refresh_token","password")
+                .secret(passwordEncoder.encode("kevin12345"))
+                .authorizedGrantTypes("password","refresh_token")
+                .redirectUris("http://www.baidu.com")
                 .scopes("all");
+
     }
 
 
