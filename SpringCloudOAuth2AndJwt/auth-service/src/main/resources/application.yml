@@ -1,0 +1,19 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: auth-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://49.235.81.235:3306/springcloud?useSSL=true&useUnicode=true&characterEncoding=gbk&serverTimezone=Hongkong
+    username: kevin
+    password: Kevin@12345
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/
+
