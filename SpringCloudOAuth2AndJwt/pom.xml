@@ -63,7 +63,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <excludes>
-
+                        <exclude>**/**.cer</exclude>
+                        <exclude>**/**.jks</exclude>
                     </excludes>
                 </configuration>
             </plugin>
