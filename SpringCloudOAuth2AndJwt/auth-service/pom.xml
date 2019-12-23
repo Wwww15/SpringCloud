@@ -55,6 +55,7 @@
                 <configuration>
                     <excludes>
                         <exclude>au</exclude>
+                        <exclude>**/**.jks</exclude>
                     </excludes>
                 </configuration>
             </plugin>

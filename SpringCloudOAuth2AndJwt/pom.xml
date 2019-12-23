@@ -15,6 +15,12 @@
     <description>Demo project for Spring Boot</description>
 
 
+    <modules>
+        <module>auth-service</module>
+        <module>eureka-server</module>
+        <module>user-service</module>
+    </modules>
+
     <packaging>pom</packaging>
 
     <properties>
@@ -61,12 +67,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>**/**.cer</exclude>
-                        <exclude>**/**.jks</exclude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>
