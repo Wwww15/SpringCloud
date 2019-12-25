@@ -11,12 +11,13 @@ eureka:
 
 
 ---
+
 server:
   port: 9001
 spring:
   application:
-    name: euerka-sever
-  profiles: euerke-server-two
+    name: eureka-sever
+  profiles: eureka-server-two
 eureka:
   client:
     service-url:
