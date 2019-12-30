@@ -50,9 +50,9 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     public JwtAccessTokenConverter jwtTokenEnhancer()
     {
         //RSA非对称加密密钥工厂，参数一为密钥地址，参数二为打开密钥的密码
-        KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("auth-jwt.jks"),"jwtsecret12345".toCharArray());
+        KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("auth-jwt.jks"),"jwt12345".toCharArray());
         JwtAccessTokenConverter converter =  new JwtAccessTokenConverter();
-        converter.setKeyPair(keyStoreKeyFactory.getKeyPair("auth-jwt"));
+        converter.setKeyPair(keyStoreKeyFactory.getKeyPair("auth-jwt","jwt12345".toCharArray()));
         return converter;
     }
 

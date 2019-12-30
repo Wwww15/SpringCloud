@@ -16,7 +16,7 @@ server:
   port: 9001
 spring:
   application:
-    name: eureka-sever
+    name: eureka-server
   profiles: eureka-server-two
 eureka:
   client:

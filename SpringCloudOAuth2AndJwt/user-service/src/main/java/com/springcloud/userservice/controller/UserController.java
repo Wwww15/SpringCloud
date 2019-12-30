@@ -19,4 +19,10 @@ public class UserController {
     {
         userService.addUser(user);
     }
+
+    @PostMapping("login")
+    public void login(User user)
+    {
+        userService.login(user);
+    }
 }
