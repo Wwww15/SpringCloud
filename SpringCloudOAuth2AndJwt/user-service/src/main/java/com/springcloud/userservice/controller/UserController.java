@@ -1,5 +1,7 @@
 package com.springcloud.userservice.controller;
 
+import com.springcloud.userservice.entity.MyJWT;
+import com.springcloud.userservice.entity.MyResponse;
 import com.springcloud.userservice.entity.User;
 import com.springcloud.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,8 @@ public class UserController {
     }
 
     @PostMapping("login")
-    public void login(User user)
+    public MyResponse<MyJWT> login(User user)
     {
-        userService.login(user);
+        return userService.login(user);
     }
 }

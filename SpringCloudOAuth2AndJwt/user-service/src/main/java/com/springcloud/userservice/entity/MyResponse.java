@@ -6,15 +6,19 @@ public class MyResponse<T> {
     public String message;
     public Integer value;
 
+    public MyResponse(T data) {
+        this("成功",200);
+        this.data = data;
+    }
+
     public MyResponse(String message, Integer value) {
         this.message = message;
         this.value = value;
     }
 
     public MyResponse(T data,String message, Integer value) {
+        this(message,value);
         this.data = data;
-        this.message = message;
-        this.value = value;
     }
 
     public T getData() {
