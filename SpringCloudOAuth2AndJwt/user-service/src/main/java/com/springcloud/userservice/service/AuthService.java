@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface AuthService {
 
     @PostMapping("/oauth/token")
-    MyJWT getToken(@RequestParam("client_id") String clientId, @RequestParam("client_secret")String clientSecret, @RequestParam("grant_type") String grantType);
+    MyJWT getToken(@RequestParam("client_id") String client_id, @RequestParam("client_secret")String client_secret, @RequestParam("grant_type") String grant_type);
 
 }
