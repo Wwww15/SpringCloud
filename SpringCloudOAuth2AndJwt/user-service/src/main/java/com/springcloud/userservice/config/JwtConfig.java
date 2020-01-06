@@ -8,9 +8,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
-import org.springframework.util.FileCopyUtils;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.stream.Collectors;
 
 @Configuration
 public class JwtConfig {
@@ -29,12 +31,15 @@ public class JwtConfig {
         return  new JwtTokenStore(jwtAccessTokenConverter());
     }
 
+    @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter()
     {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        ClassPathResource resource = new ClassPathResource("public-jwt.cer");
+        ClassPathResource resource = new ClassPathResource("public.cert");
         try {
-            converter.setVerifierKey(new String(FileCopyUtils.copyToByteArray(resource.getInputStream())));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
+            String publicKey = bufferedReader.lines().collect(Collectors.joining("\n"));
+            converter.setVerifierKey(publicKey);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -10,6 +10,6 @@ public class FeignConfig {
     @Bean
     public Retryer feignRetryer()
     {
-        return  new Retryer.Default();
+        return  new Retryer.Default(100,1000,5);
     }
 }
