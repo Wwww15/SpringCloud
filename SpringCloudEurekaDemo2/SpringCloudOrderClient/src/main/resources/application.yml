@@ -1,0 +1,25 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: order-client
+  cloud:
+    loadbalancer:
+      cache:
+        ttl: 35s
+        capacity: 256
+        enabled: true
+
+
+eureka:
+  instance:
+    hostname: order-client
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:@project.version@
+  client:
+    service-url:
+      defaultZone: http://SpringCloudServerB:8082/eureka
+    #从注册中心拉取列表间隔
+    registry-fetch-interval-seconds: 30
+
+

@@ -1,13 +1,44 @@
-server:
-  port: 8081
 spring:
   application:
     name: cloud-server
+---
+server:
+  port: 8081
+spring:
+  config:
+    activate:
+      on-profile: serverA
 eureka:
+  server:
+    #注册中心多久检查一次失效的实例
+    eviction-interval-timer-in-ms: 60
+    #自我保护
+    enable-self-preservation: true
   instance:
-    hostname: localhost
+    hostname: SpringCloudServerA
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:@project.version@
   client:
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
-    register-with-eureka: false
-    fetch-registry: false
+      defaultZone: http://SpringCloudServerB:8082/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+---
+
+server:
+  port: 8082
+spring:
+  config:
+    activate:
+      on-profile: serverB
+eureka:
+  instance:
+    hostname: SpringCloudServerB
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:@project.version@
+  client:
+    service-url:
+      defaultZone: http://SpringCloudServerA:8081/eureka
+    register-with-eureka: true
+    fetch-registry: true
