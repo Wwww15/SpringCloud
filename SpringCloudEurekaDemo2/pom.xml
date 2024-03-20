@@ -6,6 +6,8 @@
         <module>SpringCloudServer</module>
         <module>SpringCloudOrderClient</module>
         <module>SpringCloudPointClient</module>
+        <module>SpringCloudGateWay</module>
+        <module>SpringCloudConfigServer</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

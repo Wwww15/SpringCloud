@@ -1,0 +1,30 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          #git地址
+          uri: https://github.com/Wwww15/SomeFile.git
+          #私有仓库需要添加
+          username: 100680802@qq.com
+          #私有仓库需要添加
+          password: SHANGshao!20
+          #默认分支
+          default-label: main
+          #搜索的路径，仓库中的子目录
+          search-paths: springcloud
+
+eureka:
+  instance:
+    hostname: config-server
+    prefer-ip-address: true
+    instance-id: http://${spring.cloud.client.ip-address}:${server.port}:@project.version@
+  client:
+    service-url:
+      defaultZone: http://SpringCloudServerB:8082/eureka
+

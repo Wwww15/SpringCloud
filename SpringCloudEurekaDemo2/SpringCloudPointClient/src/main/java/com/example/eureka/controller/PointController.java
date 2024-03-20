@@ -15,6 +15,11 @@ public class PointController {
     @Autowired
     private PointService pointService;
 
+    @PostMapping("hi")
+    public String hi() throws InterruptedException {
+        return "this is point";
+    }
+
     @PostMapping("new")
     public void newPoint(@RequestBody OrderPo orderPo) throws InterruptedException {
         pointService.point(orderPo.getCount(),orderPo.getPerPoint());

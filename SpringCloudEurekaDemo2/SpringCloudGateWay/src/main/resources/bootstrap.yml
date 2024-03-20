@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    config:
+      enabled: true
+      #配置文件名
+      name: application
+      #配置中心服务器地址
+      uri: http://localhost:8087
+      #分支
+      label: main
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

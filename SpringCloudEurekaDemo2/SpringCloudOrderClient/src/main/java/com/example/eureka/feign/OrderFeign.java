@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 /**
  * 这里的name为spring.application.name
  */
-@FeignClient(name = "point-client",fallback = OrderFeignFallBack.class)
+@FeignClient(name = "point-client",fallback = OrderSentinelProcessor.class)
 public interface OrderFeign {
 
     @PostMapping("/point/new")

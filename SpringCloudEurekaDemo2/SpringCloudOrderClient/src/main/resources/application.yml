@@ -9,7 +9,11 @@ spring:
         ttl: 35s
         capacity: 256
         enabled: true
-
+    #alibaba熔断器
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719
 
 eureka:
   instance:
@@ -21,5 +25,19 @@ eureka:
       defaultZone: http://SpringCloudServerB:8082/eureka
     #从注册中心拉取列表间隔
     registry-fetch-interval-seconds: 30
+feign:
+  #使用sentinel熔断器
+  sentinel:
+    enabled: true
+  #请求相应压缩
+  compression:
+    request:
+      enabled: true
+      #出发压缩下限
+      min-request-size: 2048
+      #压缩的数据类型
+      mime-types: text/xml, application/xml, application/json
+    response:
+      enabled: true
 
 
