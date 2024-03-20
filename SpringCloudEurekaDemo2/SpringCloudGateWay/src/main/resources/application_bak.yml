@@ -1,0 +1,32 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: gate-way
+  cloud:
+    #gate-way网关
+    gateway:
+      routes:
+      - id: point-route
+        #lb协议，表示通过服务名负载均衡
+        uri: lb://point-client
+        #route断言
+        predicates:
+          - Path=/point/**
+      - id: order-route
+        #lb协议，表示通过服务名负载均衡
+        uri: lb://order-client
+        #route断言
+        predicates:
+          - Path=/order/**
+        filters:
+
+eureka:
+  instance:
+    hostname: gate-way
+    prefer-ip-address: true
+    instance-id: http://${spring.cloud.client.ip-address}:${server.port}:@project.version@
+  client:
+    service-url:
+      defaultZone: http://SpringCloudServerA:8081/eureka
+
