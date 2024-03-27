@@ -1,0 +1,14 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: stream-consumer
+eureka:
+  instance:
+    hostname: stream-consumer
+    prefer-ip-address: true
+    instance-id: http://${spring.cloud.client.ip-address}:${server.port}:@project.version@
+  client:
+    service-url:
+      defaultZone: http://SpringCloudServerA:8081/eureka
+

@@ -18,7 +18,13 @@ spring:
           default-label: main
           #搜索的路径，仓库中的子目录
           search-paths: springcloud
-
+  #rabbitmq配置
+  rabbitmq:
+    host: 192.168.119.147
+    port: 5672
+    username: root
+    password: 123456
+#eureka注册服务配置
 eureka:
   instance:
     hostname: config-server
@@ -27,4 +33,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://SpringCloudServerB:8082/eureka
+#监控平台暴露接口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 

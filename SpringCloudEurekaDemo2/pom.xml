@@ -8,6 +8,8 @@
         <module>SpringCloudPointClient</module>
         <module>SpringCloudGateWay</module>
         <module>SpringCloudConfigServer</module>
+        <module>SpringCloudStreamConsumer</module>
+        <module>SpringCloudStreamProvider</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

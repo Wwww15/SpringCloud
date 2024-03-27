@@ -1,0 +1,31 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: stream-provider
+  cloud:
+    stream:
+      binders:
+        providerBinder:
+          type: rabbit
+          enviroment:
+            spring:
+              rabbitmq:
+                host: 192.168.119.147
+                port: 5672
+                username: root
+                password: 123456
+      bindings:
+        output:
+          destination: providerExchange
+          content-type: application/json
+          binder: providerBinder
+
+eureka:
+  instance:
+    hostname: stream-provider
+#    instance-id: http://${spring.cloud.client.ip-address}:${server.port}:@project.version@
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://SpringCloudServerB:8082/eureka

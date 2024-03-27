@@ -8,6 +8,11 @@ spring:
       uri: http://localhost:8087
       #分支
       label: main
+  rabbitmq:
+    host: 192.168.119.147
+    port: 5672
+    username: root
+    password: 123456
 
 management:
   endpoints:
